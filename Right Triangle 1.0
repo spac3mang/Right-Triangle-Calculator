@@ -8,8 +8,8 @@ while Loop == "yes":
 	S1 = float(raw_input("Leg 1: "))
 	S2 = float(raw_input("Leg 2: "))
 	
-	H = raw_input("Do you want to enter a Hypotenuse? If so, type yes : ")
-	if H == "yes":
+	H = raw_input("Do you want to enter a Hypotenuse? [y/n]: ")
+	if H == "yes" or "y":
 		S3 = float(raw_input("Hypotenuse: "))
 	else:
 		S3 = math.sqrt((S1 ** 2) + (S2 ** 2))
