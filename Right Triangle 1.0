@@ -1,0 +1,44 @@
+#!/usr/bin/python
+
+import math
+
+Loop = "yes"
+
+while Loop == "yes":
+	S1 = float(raw_input("Leg 1: "))
+	S2 = float(raw_input("Leg 2: "))
+	
+	H = raw_input("Do you want to enter a Hypotenuse? If so, type yes : ")
+	if H == "yes":
+		S3 = float(raw_input("Hypotenuse: "))
+	else:
+		S3 = math.sqrt((S1 ** 2) + (S2 ** 2))
+	ST = S1 + S2 + S3
+	A1 = math.degrees(math.atan2(S1,S2))
+	A2 = math.degrees(math.atan2(S2,S1))
+	A3 = 90
+	AT = A1 + A2 + A3
+	
+	if S1 + S2 > S3:
+		AREA = (S1 * S2) * 0.5
+	else:
+		AREA = 0
+	
+	if AT == 180:
+		if S1 + S2 > S3:
+			T = "valid"
+			O = ">"
+			G = "and"
+	
+	if S1 + S2 < S3:
+		T = "impossible"
+		O = "<"
+		G = "but"
+	if not AT == 180:
+		T = "impossible"
+		O = "<"
+		G = "but"
+		
+	print "\nSides are:\nLeg 1: %s\nLeg 2: %s\nHypotenuse: %s\n\nParimeter:\n%s\n\nArea:\n%s\n\nAngles are:\n%s\n%s\n%s\n\nThis triangle is %s\nExplanation:\nThe sum of the angles = %s %s Leg 1: %s + Leg 2: %s %s %s\n\n" % (S1, S2, S3, ST, AREA, A1, A2, A3, T, AT, G, S1, S2, O, S3)
+	
+	Loop = raw_input("Calculate another right triangle? ")
